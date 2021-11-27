@@ -1,0 +1,12 @@
+There are 8 types of python classes:
+->Classes
+->Identifiers(Variables)
+->Operators
+->Delimiters
+->Keyword
+->Commments
+->Blank Line
+->White Space
+->Indentation
+
+# Variables do not have types(classes), objects have

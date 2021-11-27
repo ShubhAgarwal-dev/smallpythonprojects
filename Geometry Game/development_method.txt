@@ -1,0 +1,4 @@
+Write down the Object on paper
+Write a class for each object
+Write method for each class
+Calling Class for each Mathod
