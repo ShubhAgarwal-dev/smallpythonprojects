@@ -37,6 +37,18 @@ class Rectangle:
         self._lower_left = lower_left
         self._upper_right = upper_right
 
+    def side_lengths(self):
+        upper_left = Point(self._lower_left._x, self._upper_right._y)
+        length1 = upper_left.distance(self._lower_left)
+        length2 = upper_left.distance(self._upper_right)
+        return (length1, length2)
+
+    def area(self):
+        sides = self.side_lengths()
+        length = sides[0]
+        width = sides[1]
+        return length * width
+
     def __str__(self):
         return f'Rectangle Coordinates are\nLower Left : ({self._lower_left._x},{self._lower_left._y}) and\nUpper Right : ({self._upper_right._x},{self._upper_right._y})'
 
@@ -50,5 +62,17 @@ def random_rect(initial_lower:int = 0, difference:int = 9):
 if __name__ == '__main__':
     rect1 = random_rect()
     print(rect1)
+    
     user_point = Point(int(input("Guess X:")), int(input("Guess Y:")))
     print(f'Your point was inside the  rectangle : {user_point.point_falls_in_rect(rect1)}')
+    
+    consent = input("Do you want to play futher(y/n):")
+    if consent == 'y' or consent == 'Y':
+        guessed_area = int(input("Guess the area of rectangle:"))
+        if guessed_area == rect1.area():
+            print("Congo!! You gussed correct area!")
+        else:
+            print(f"Good luck for next time.\nWell correct area is {rect1.area()}")
+
+    print("Ok thanks!!")
+    
