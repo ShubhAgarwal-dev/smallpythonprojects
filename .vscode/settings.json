@@ -102,24 +102,11 @@
         "Orange"
     ],
     "gitlens.views.stashes.files.layout": "tree",
-    "cSpell.ignoreWords": [
-        "ggame",
-        "gmail",
-        "shubhagarwa"
-    ],
-    "python.testing.unittestArgs": [
-        "-v",
-        "-s",
-        "./practice testing",
-        "-p",
-        "*test.py"
-    ],
     "python.testing.pytestEnabled": false,
     "python.testing.unittestEnabled": true,
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.wordWrap": "on",
     "code-runner.runInTerminal": true,
-    "python.pythonPath": "Geometry Game\\Scripts\\python.exe",
     "python.formatting.yapfArgs": [
         "--style",
         "{based_on_style: pep8, indent_width:  4}"
@@ -134,5 +121,8 @@
             "scope": "workspace"
         }
     },
-    "tabnine.experimentalAutoImports": true
+    "tabnine.experimentalAutoImports": true,
+    "python.envFile": "${workspaceFolder}/.env, ${workspaceFolder}/'Geometry Game'/.env",
+    "editor.formatOnType": true,
+    "python.languageServer": "Pylance"
 }

@@ -4,7 +4,7 @@ There are 8 types of python classes:
 ->Operators
 ->Delimiters
 ->Keyword
-->Commments
+->Comments
 ->Blank Line
 ->White Space
 ->Indentation
