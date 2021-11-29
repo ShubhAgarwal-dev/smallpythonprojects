@@ -6,7 +6,7 @@ from random import randint
 class GuiPoint(ggame.Point):
     def draw(self, canvas: turtle.Turtle, size=5, color='blue'):
         canvas.penup()
-        canvas.goto(self._x, self._y * 20)
+        canvas.goto(self._x * 20, self._y * 20)
         canvas.pendown()
         canvas.dot(size, color)
 
