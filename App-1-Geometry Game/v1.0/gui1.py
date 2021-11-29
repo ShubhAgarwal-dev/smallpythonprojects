@@ -6,7 +6,7 @@ from random import randint
 class GuiPoint(ggame.Point):
     def draw(self, canvas: turtle.Turtle, size=5, color='blue'):
         canvas.penup()
-        canvas.goto(self._x * 20, self._y * 20)
+        canvas.goto(self._x, self._y * 20)
         canvas.pendown()
         canvas.dot(size, color)
 
@@ -47,11 +47,13 @@ def random_gui_rect(initial_lower: int = 0, difference: int = 9):
 
 
 if __name__ == '__main__':
-    gui_rect1 = random_gui_rect()
-    guipoint1 = GuiPoint(3, 7)
+    rect = random_gui_rect(1, 8)
+    print(rect)
+    user_point = GuiPoint(int(input("Guess X:")), int(input("Guess Y:")))
+    print(
+        f'Is your point inside the  rectangle : {user_point.point_falls_in_rect(rect)}'
+    )
     my_turtle = turtle.Turtle()
-    gui_rect1.draw(my_turtle)
-    guipoint1.draw(my_turtle)
-
-    turtle.hideturtle()
+    rect.draw(my_turtle)
+    user_point.draw(my_turtle)
     turtle.done()
