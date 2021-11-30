@@ -1,4 +1,5 @@
 from fpdf import FPDF
+import webbrowser
 
 
 class Bill():
@@ -47,6 +48,7 @@ class PdfReport():
         # making pdf class
         pdf = FPDF(orientation='L', unit='pt', format='A4')
         pdf.add_page()
+        #   # I did not add image available at files\house.png as it was not looking good
 
         # Inserting Title
         pdf.set_font(family="Arial", style='BI', size=32)
@@ -89,6 +91,7 @@ class PdfReport():
 
         # Output Cell
         pdf.output(fr".\pdf\{self._file_name}")
+        webbrowser.open(r'.\pdf\bill.pdf')
 
 
 if __name__ == '__main__':
