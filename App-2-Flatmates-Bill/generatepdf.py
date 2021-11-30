@@ -1,34 +1,8 @@
 from fpdf import FPDF
 import webbrowser
+from flat import *
 
-
-class Bill():
-    '''
-    Object that contain data about bill.
-    Such as total amount, period of bill, etc.
-    '''
-
-    def __init__(self, amount: int, period: int) -> None:
-        self._amount = amount
-        self._period = period
-
-
-class Flatmate():
-    '''
-    Object for flatmate(or anyone for that matter) that live with you 
-    and pays share of bill.
-    '''
-
-    def __init__(self, name: str, days_in_house: int = 30) -> None:
-        self._name = name
-        self._days = days_in_house
-
-    def pays(self, bill: Bill, *flatmates):
-        sum = self._days
-        for i in flatmates:
-            sum += i._days
-        weight = self._days / sum
-        return weight * bill._amount
+# Code from main.py is being reorganized
 
 
 class PdfReport():
@@ -93,17 +67,3 @@ class PdfReport():
         # Output Cell
         pdf.output(fr".\pdf\{self._file_name}")
         webbrowser.open(r'.\pdf\bill.pdf')
-
-
-if __name__ == '__main__':
-    shivam = Flatmate('Shivam')
-    rahul = Flatmate('Rahul', 20)
-    meena = Flatmate('Meena', 18)
-    electricity_bill = Bill(1200, 'Dec 2021')
-
-    print(shivam.pays(electricity_bill, rahul, meena))
-    print(rahul.pays(electricity_bill, shivam, meena))
-    print(meena.pays(electricity_bill, shivam, rahul))
-
-    PDF = PdfReport("bill.pdf")
-    PDF.generate_pdf(electricity_bill, shivam, rahul, meena)
