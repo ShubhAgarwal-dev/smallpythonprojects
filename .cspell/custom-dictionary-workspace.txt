@@ -1,4 +1,10 @@
 # Custom Dictionary Words
+Calibri
+fpdf
 ggame
+meena
 penup
 PYTHONPATH
+Rahul
+shivam
+upto

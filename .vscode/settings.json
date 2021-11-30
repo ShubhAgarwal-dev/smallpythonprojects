@@ -112,7 +112,7 @@
     "code-runner.runInTerminal": true,
     "python.formatting.yapfArgs": [
         "--style",
-        "{based_on_style: pep8, indent_width:  4}"
+        "{based_on_style: yapf, indent_width:  4, split_before_logical_operator = true}"
     ],
     "editor.formatOnSave": true,
     "python.formatting.provider": "yapf",
