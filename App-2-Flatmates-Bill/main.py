@@ -67,9 +67,9 @@ class PdfReport():
 
             flatmates_list = list(flatmates)
             flatmates_list.remove(flatmate)
-            flatmates2 = tuple(flatmates_list)
+            flatmates = tuple(flatmates_list)
 
-            amount_to_pay = flatmate.pays(bill, *flatmates2)
+            amount_to_pay = flatmate.pays(bill, *flatmates)
 
             pdf.cell(w=390, h=50, txt=flatmate._name, border=1, ln=0)
             pdf.cell(
@@ -79,6 +79,7 @@ class PdfReport():
                 border=1,
                 ln=1,
                 align='R')
+            bill._amount -= amount_to_pay
 
         pdf.cell(w=390, h=50, txt="Total Amount", border=1, ln=0)
         pdf.cell(
