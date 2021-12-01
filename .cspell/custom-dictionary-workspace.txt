@@ -2,9 +2,11 @@
 Calibri
 fpdf
 ggame
+imagepath
 meena
 penup
 PYTHONPATH
 Rahul
 shivam
 upto
+wtforms
