@@ -37,6 +37,8 @@ class PdfReport():
 
         # Adding Name and due amount of flatmate
         pdf.set_font(family='Times', size=20)
+        total = bill._amount
+        # Because it is to be printed at last line
         for flatmate in flatmates:
 
             flatmates_list = list(flatmates)
@@ -59,11 +61,11 @@ class PdfReport():
         pdf.cell(
             w=0,
             h=50,
-            txt=str(format(float(bill._amount), ".2f")),
+            txt=str(format(float(total), ".2f")),
             border=1,
             ln=1,
             align='R')
 
         # Output Cell
         pdf.output(fr".\pdf\{self._file_name}")
-        webbrowser.open(r'.\pdf\bill.pdf')
+        webbrowser.open(fr'.\pdf\{self._file_name}')
