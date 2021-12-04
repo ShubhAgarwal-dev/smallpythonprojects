@@ -1,12 +1,13 @@
 # Code from main.py is being reorganized
 
+
 class Bill():
     '''
     Object that contain data about bill.
     Such as total amount, period of bill, etc.
     '''
 
-    def __init__(self, amount: int, period: int) -> None:
+    def __init__(self, amount: int, period: str) -> None:
         self._amount = amount
         self._period = period
 
