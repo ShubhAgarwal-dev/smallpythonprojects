@@ -10,7 +10,7 @@ class PdfReport():
     It would create pdf file that would contain data about flatmate's name, due bill, etc.
     '''
 
-    # # sire od A4 in points is 595 x 842 pt
+    # # size of A4 in points is 595 x 842 pt
 
     def __init__(self, file_name: str):
         self._file_name = file_name
