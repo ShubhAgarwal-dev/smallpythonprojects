@@ -127,4 +127,5 @@
     "tabnine.experimentalAutoImports": true,
     "python.envFile": "${workspaceFolder}/.env",
     "editor.formatOnType": true,
+    "files.autoSave": "onFocusChange"
 }

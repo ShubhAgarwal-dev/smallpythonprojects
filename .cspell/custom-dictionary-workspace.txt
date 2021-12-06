@@ -1,12 +1,16 @@
 # Custom Dictionary Words
+billform
 Calibri
 fpdf
 ggame
 imagepath
 meena
+Mohan
 penup
 PYTHONPATH
 Rahul
 shivam
+Shyam
 upto
+werkzeug
 wtforms
