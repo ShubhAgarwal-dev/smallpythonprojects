@@ -1,9 +1,10 @@
 from flask.views import MethodView
-from werkzeug.wrappers import request
 from wtforms import Form
 from flask import Flask, render_template
 from wtforms.fields.simple import StringField, SubmitField
 from flatmate_bill.flat import Bill, Flatmate
+from flask import request
+# it is quiet important as I imported request from quiet a lot of places
 
 app = Flask(__name__)
 
@@ -37,7 +38,12 @@ class ResultsPage(MethodView):
         flatmate2 = Flatmate(bill_form.name2.data,
                              int(bill_form.days_in_house2.data))
         # currently it is made only for 2 people
-        return f'{flatmate1._name} pays {flatmate1.pays(the_bill, flatmate2)}'
+        return (render_template(
+            'results.html',
+            name1=flatmate1._name,
+            name2=flatmate2._name,
+            amount1=format(float(flatmate1.pays(the_bill, flatmate2)), '.2f'),
+            amount2=format(float(flatmate2.pays(the_bill, flatmate1)), '.2f')))
 
 
 class BillForm(Form):

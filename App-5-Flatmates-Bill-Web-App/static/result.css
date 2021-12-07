@@ -1,0 +1,17 @@
+body {
+    background-image:url('money.jpg');
+    background-size: 100%;
+    padding: 20px;
+    opacity: 0.5;
+}
+
+div {
+    color: #1DA2DC; /* please suggest a better background colour */
+    text-align: center;
+    padding: 8px 8px;
+    font-size: 300%;
+}
+
+div:hover {
+    background-color: crimson;
+}

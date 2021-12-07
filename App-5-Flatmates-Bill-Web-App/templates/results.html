@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href={{url_for('static', filename='result.css' )}}>
 </head>
+
 <body>
-    {{name1}} pays {{amount1}} <br>
-    {{name2}} pays {{amount2}}
+    <div>
+        {{name1}} pays: ₹{{amount1}}
+    </div>
+    <br>
+    <div>
+        {{name2}} pays: ₹{{amount2}}
+    </div>
 </body>
+
 </html>
