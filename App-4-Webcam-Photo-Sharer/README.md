@@ -1,0 +1,1 @@
+*It has photo searcher just for the introduction to python*
