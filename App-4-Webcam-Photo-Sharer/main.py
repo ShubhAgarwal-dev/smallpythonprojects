@@ -6,7 +6,8 @@ from kivy.lang import Builder
 
 # to get image
 from wikipedia import page
-import requests
+from urllib.request import urlretrieve
+# requests module was not giving responding with image rather with
 
 # to get extension of the image received
 from os.path import splitext
@@ -27,21 +28,20 @@ class FirstScreen(Screen):
     @staticmethod
     def download_image(query):
         image_link = FirstScreen.get_image(query)
-        response = requests.get(image_link)
         ext = splitext(image_link)[-1].lower()
-        with open(fr'files/{query}{ext}', mode='wb') as file:
-            file.write(response.content)
+        urlretrieve(image_link, fr'files\{query}{ext}')
         return fr'files/{query}{ext}'
 
     def search_image(self):
         query = self.manager.current_screen.ids.user_query.text
         # Get user query from text input
         print('working...')
-        self.manager.current_screen.ids.img.source = self.get_image(query)
+        self.manager.current_screen.ids.img.source = FirstScreen.download_image(
+            query)
         # id: img defined in frontend.kv
         # Display the output
-        print(self.get_image(query))
-        print(type(self.get_image(query)))
+        print(FirstScreen.get_image(query))
+        print(type(FirstScreen.get_image(query)))
 
 
 class RootWidget(ScreenManager):

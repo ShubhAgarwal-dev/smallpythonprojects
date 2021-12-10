@@ -1,4 +1,5 @@
 # created by virtualenv automatically
 share
 *.jpg
+*.svg
 # Just ignoring the files created by query
