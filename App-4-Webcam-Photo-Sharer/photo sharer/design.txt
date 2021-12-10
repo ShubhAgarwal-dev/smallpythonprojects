@@ -1,6 +1,5 @@
 Title: Webcam Photo Sharer
-Description: An app that starts the computer webcam, lets the user capture a photo
-and uploads the photo to the web and creates a sharable link.
+Description: An app that starts the computer webcam, lets the user capture a photo and uploads the photo to the web and creates a sharable link.
 Objects: Webcam:
             start()
             stop()
@@ -11,3 +10,6 @@ Objects: Webcam:
             share()
 
 
+# Goal 2:
+We can even ask user if he wants to make the photo open faster, then we would be shrinking th image to save space online.
+Using Pillow Library

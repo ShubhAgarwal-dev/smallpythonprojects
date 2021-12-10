@@ -4,6 +4,7 @@
     "editor.fontSize": 12,
     "terminal.integrated.fontSize": 13,
     "terminal.integrated.fontFamily": "Source Code Pro",
+    "better-comments.highlightPlainText": true,
     "better-comments.tags": [
         {
             "tag": "!",
