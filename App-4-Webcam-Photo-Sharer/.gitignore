@@ -1,2 +1,4 @@
 # created by virtualenv automatically
 share
+*.jpg
+# Just ignoring the files created by query
