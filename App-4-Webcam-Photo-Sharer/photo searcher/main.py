@@ -6,8 +6,12 @@ from kivy.lang import Builder
 
 # to get image
 from wikipedia import page
+import wikipedia
 from urllib.request import urlretrieve
 # requests module was not giving responding with image rather with
+
+# to choose one option in case of wikipedia.exceptions.DisambiguationError
+from random import randint
 
 # to get extension of the image received
 from os.path import splitext
@@ -22,7 +26,19 @@ class FirstScreen(Screen):
 
     @staticmethod
     def get_image(query):
-        image_link = page(query).images[0]
+        while True:
+            try:
+                image_link = page(title=query).images[0]
+            except wikipedia.exceptions.PageError as err:
+                print('Requested page is not found')
+                raise err
+            except wikipedia.exceptions.DisambiguationError as err:
+                # to choose
+                num = randint(0, len(err.options))
+                query = err.options[num]
+                continue
+            else:
+                break
         return image_link
 
     @staticmethod
@@ -32,7 +48,7 @@ class FirstScreen(Screen):
         urlretrieve(image_link, fr'files\{query}{ext}')
         return fr'files/{query}{ext}'
 
-    def search_image(self):
+    def set_image(self):
         query = self.manager.current_screen.ids.user_query.text
         # Get user query from text input
         print('working...')
@@ -40,8 +56,6 @@ class FirstScreen(Screen):
             query)
         # id: img defined in frontend.kv
         # Display the output
-        print(FirstScreen.get_image(query))
-        print(type(FirstScreen.get_image(query)))
 
 
 class RootWidget(ScreenManager):
