@@ -8,6 +8,8 @@ imagepath
 kivy
 meena
 Mohan
+MSMF
+OPENCV
 penup
 pyright
 PYTHONPATH
@@ -15,5 +17,6 @@ Rahul
 shivam
 Shyam
 upto
+VIDEOIO
 werkzeug
 wtforms
