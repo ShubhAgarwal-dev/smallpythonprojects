@@ -9,6 +9,9 @@ from kivy.lang import Builder
 # to share file across
 from filesharer import FileSharer
 
+# to make unique files
+import time
+
 kivy.require('2.0.0')
 Builder.load_file('frontend.kv')
 
@@ -29,11 +32,14 @@ class CameraScreen(Screen):
         self.ids.camera.texture = None
         self.ids.camera_button.text = 'Start Camera'
 
-
-#
-
     def capture(self):
-        pass
+        current_time = time.strftime("%Y%m%d-%M%H%S")
+        path = fr'capture\{current_time}.png'
+
+        self.ids.camera.export_to_png('image.png')
+        self.ids.camera.export_to_png(path)
+
+        print('capture')
 
 
 class ImageScreen(Screen):

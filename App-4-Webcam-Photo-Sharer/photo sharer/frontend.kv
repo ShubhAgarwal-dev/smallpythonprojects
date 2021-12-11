@@ -13,6 +13,8 @@
             on_press: root.start() if root.ids.camera.play == False else root.stop()
         Button:
             text: 'Capture'
+            id: capture_button
+            on_press: root.capture()
             size_hint_y: 0.08
 
 <RootWidget>:
