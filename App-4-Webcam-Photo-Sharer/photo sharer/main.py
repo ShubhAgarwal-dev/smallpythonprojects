@@ -7,7 +7,7 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.lang import Builder
 
 # to share file across
-from fs import FileSharer
+from filesharer import FileSharer
 
 kivy.require('2.0.0')
 Builder.load_file('frontend.kv')
@@ -17,7 +17,7 @@ class CameraScreen(Screen):
     # Using it as Webcam Class
 
     def start(self):
-        pass
+        self.ids.camera.play = True
 
     def stop(self):
         pass
