@@ -16,9 +16,12 @@ Builder.load_file('frontend.kv')
 class CameraScreen(Screen):
     # Using it as Webcam Class
 
+    def __call__(self):
+        self.ids.camera.play = False
+
     def start(self):
         self.ids.camera.play = True
-        # self.ids.camera.texture = self.ids.camera._camera.texture
+        self.ids.camera.texture = self.ids.camera._camera.texture
         self.ids.camera_button.text = 'Stop Camera'
 
     def stop(self):
