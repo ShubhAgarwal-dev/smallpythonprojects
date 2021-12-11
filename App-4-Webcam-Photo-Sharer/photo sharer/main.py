@@ -1,3 +1,5 @@
+# type: ignore
+# pyright: reportMissingModuleSource=false
 # To Develop frontend
 import kivy
 from kivy.app import App

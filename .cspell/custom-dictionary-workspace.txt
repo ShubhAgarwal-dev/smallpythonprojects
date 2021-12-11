@@ -9,6 +9,7 @@ kivy
 meena
 Mohan
 penup
+pyright
 PYTHONPATH
 Rahul
 shivam
