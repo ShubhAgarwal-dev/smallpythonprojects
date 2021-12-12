@@ -35,6 +35,7 @@ class CameraScreen(Screen):
         """
         self.ids.camera.play = True
         self.ids.camera.texture = self.ids.camera._camera.texture
+        self.ids.camera.opacity = 1
         self.ids.camera_button.text = 'Stop Camera'
 
     def stop(self):
@@ -43,6 +44,7 @@ class CameraScreen(Screen):
         '''
         self.ids.camera.play = False
         self.ids.camera.texture = None
+        self.ids.camera.opacity = 0
         self.ids.camera_button.text = 'Start Camera'
 
     def capture(self):
@@ -78,6 +80,7 @@ class ImageScreen(Screen):
         # we use screen id in the above case
 
         file_sharer = FileSharer(file_path=image_path)
+        print('creating link')
         self.url = file_sharer.share()
         self.ids.link_label.text = self.url
 

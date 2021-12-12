@@ -8,6 +8,7 @@
             resolution: (640, 480)
             press: root.__call__()
             texture: None
+            opacity: 0
         Button:
             id : camera_button
             text: 'Start Camera'
@@ -35,6 +36,7 @@
             size_hint_y: 0.08
             background_normal: r'images\normal.png'
             background_down: r'images\down.png'
+            on_press: root.create_link()
         Label:
             id: link_label
             size_hint_y: 0.08
@@ -54,6 +56,12 @@
                 background_down: r'images\down.png'
 
 <RootWidget>:
+    canvas.before:
+        Color:
+            rgba: (0, 0.627, 0.769, 0.8)
+        Rectangle:
+            pos: self.pos
+            size: self.size
     CameraScreen:
         id: camera_screen
         name: 'camera_screen'
