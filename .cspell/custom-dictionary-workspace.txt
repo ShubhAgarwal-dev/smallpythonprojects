@@ -6,6 +6,7 @@ fpdf
 ggame
 imagepath
 kivy
+LYRK
 meena
 Mohan
 MSMF
