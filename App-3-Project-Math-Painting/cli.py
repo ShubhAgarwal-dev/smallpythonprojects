@@ -30,7 +30,7 @@ def color_prompt(object_class: str = 'Object') -> list:
     return color
 
 
-def square_prompt(canvas: Canvas) -> Square:
+def square_prompt(canvas: Canvas):
     x_coordinate = abs(
         int(input('What is the upper-left x-coordinate of square: ')))
     y_coordinate = abs(
@@ -44,10 +44,10 @@ def square_prompt(canvas: Canvas) -> Square:
             break
     color = color_prompt('square')
     square = Square(x_coordinate, y_coordinate, side, color)
-    return square
+    square.draw(canvas)
 
 
-def rectangle_prompt(canvas: Canvas) -> Rectangle:
+def rectangle_prompt(canvas: Canvas):
     x_coordinate = abs(
         int(input('What is the upper-left x-coordinate of rectangle: ')))
     y_coordinate = abs(
@@ -73,12 +73,45 @@ def rectangle_prompt(canvas: Canvas) -> Rectangle:
         else:
             break
     color = color_prompt('rectangle')
-    return Rectangle(x_coordinate, y_coordinate, width, height, color)
+    rect = Rectangle(x_coordinate, y_coordinate, width, height, color)
+    rect.draw(canvas)
 
 
-def proceed_prompt():
-    pass
+def proceed_prompt(canvas: Canvas):
+    print('What do you want to do further?')
+    while True:
+        responce = input('Type s for Square, r for rectangle or q to quit: ')
+        if responce == 's' or 'S':
+            square_prompt(canvas)
+            break
+        elif responce == 'r' or 'R':
+            rectangle_prompt(canvas)
+            break
+        elif responce == 'q' or 'Q':
+            print('Are you sure')
+            responce2 = input('Type q again to quit: ')
+            if responce2 == 'q' or 'Q':
+                exit()
+            else:
+                continue
+        else:
+            print('Please type correct responce!!')
+            continue
 
 
 if __name__ == '__main__':
     canvas = canvas_prompt()
+    print('What would you like to draw on the canvas you made? ')
+    while True:
+        responce = input('Type s for Square or r for rectangle')
+        if responce == 's' or 'S':
+            square_prompt(canvas)
+            break
+        elif responce == 'r' or 'R':
+            rectangle_prompt(canvas)
+            break
+        else:
+            print('Please type correct responce!!')
+            continue
+    while True:
+        proceed_prompt()
