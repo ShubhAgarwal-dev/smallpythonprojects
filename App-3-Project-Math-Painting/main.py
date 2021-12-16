@@ -4,6 +4,9 @@ from PIL import Image
 
 
 class Canvas:
+    '''
+    To make and handle the canvas
+    '''
 
     def __init__(self, width: int, height: int, color: Iterable,
                  image_path) -> None:
@@ -13,6 +16,9 @@ class Canvas:
         self.image_path = image_path
 
     def canvas_data(self):
+        '''
+        To tell the current state of canvas
+        '''
         img = Image.open(self.image_path)
         canvas_data = np.asarray(img)
         img.close()
@@ -26,6 +32,9 @@ class Canvas:
 
 
 class Square:
+    '''
+    To make and draw square on the canvas
+    '''
 
     def __init__(self, x: int, y: int, side: int, color: Iterable) -> None:
         self._x = x
@@ -34,6 +43,9 @@ class Square:
         self._color = color
 
     def draw(self, canvas: Canvas):
+        '''
+        Draw square on the canvas
+        '''
         canvas_data = canvas.canvas_data()
         canvas_data[self._y:self._y + self._side,
                     self._x:self._x + self._side] = list(self._color)
@@ -42,6 +54,9 @@ class Square:
 
 
 class Rectangle:
+    '''
+    To deal with rectangle shape
+    '''
 
     def __init__(self, x: int, y: int, width: int, height: int,
                  color: Iterable) -> None:
@@ -52,6 +67,9 @@ class Rectangle:
         self._color = color
 
     def draw(self, canvas: Canvas):
+        '''
+        To draw rectangle on the canvas
+        '''
         canvas_data = canvas.canvas_data()
         canvas_data[self._y:self._y + self._height,
                     self._x:self._x + self._width] = list(self._color)

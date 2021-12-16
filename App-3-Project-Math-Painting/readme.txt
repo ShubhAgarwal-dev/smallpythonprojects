@@ -1,0 +1,1 @@
+The main files of the project are main.py and cli.py, other files are just the result of some trial and error 

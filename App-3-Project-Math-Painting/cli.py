@@ -2,35 +2,49 @@ from main import *
 
 
 def canvas_prompt() -> Canvas:
-    width = int(input('Enter the canvas width(in px)?:'))
-    height = int(input('Enter the canvas height(in px)?:'))
+    '''
+    It would make your canvas from series of terminal inputs
+    '''
+    width = int(input('Enter the canvas width(in px): '))
+    height = int(input('Enter the canvas height(in px): '))
     color = color_prompt('canvas')
-    image_path = input('What to name the image:?')
+    image_path = input('What to name the image: ')
+    if image_path[-4:0] != '.png':
+        image_path += '.png'
     canvas = Canvas(width, height, color, image_path)
     return canvas
 
 
 def color_prompt(object_class: str = 'Object') -> list:
+    '''
+    To make colour for your shapes or canvas
+    '''
+    print('')
     red = abs(
         int(
             input(
-                f'Please enter the amount of red you want in your {object_class}?\nPlease tell out of 255:'
-            )))
-    blue = abs(
-        int(
-            input(
-                f'Please enter the amount of blue you want in your {object_class}?\nPlease tell out of 255:'
+                f'Please enter the amount of red you want in your {object_class}? Please tell out of 255: '
             )))
     green = abs(
         int(
             input(
-                f'Please enter the amount of green you want in your {object_class}?\nPlease tell out of 255:'
+                f'Please enter the amount of green you want in your {object_class}? Please tell out of 255: '
             )))
+    blue = abs(
+        int(
+            input(
+                f'Please enter the amount of blue you want in your {object_class}? Please tell out of 255: '
+            )))
+    print('')
     color = [red, green, blue]
     return color
 
 
 def square_prompt(canvas: Canvas):
+    '''
+    To draw square in canvas
+    from relatively user-friendly terminal inputs
+    '''
     x_coordinate = abs(
         int(input('What is the upper-left x-coordinate of square: ')))
     y_coordinate = abs(
@@ -48,6 +62,10 @@ def square_prompt(canvas: Canvas):
 
 
 def rectangle_prompt(canvas: Canvas):
+    '''
+    To draw rectangle in canvas
+    from relatively user-friendly terminal inputs
+    '''
     x_coordinate = abs(
         int(input('What is the upper-left x-coordinate of rectangle: ')))
     y_coordinate = abs(
@@ -78,6 +96,9 @@ def rectangle_prompt(canvas: Canvas):
 
 
 def proceed_prompt(canvas: Canvas):
+    '''
+    To proceed the cli for more shapes
+    '''
     print('What do you want to do further?')
     while True:
         responce = input('Type s for Square, r for rectangle or q to quit: ')
@@ -101,9 +122,10 @@ def proceed_prompt(canvas: Canvas):
 
 if __name__ == '__main__':
     canvas = canvas_prompt()
+    canvas.make()
     print('What would you like to draw on the canvas you made? ')
     while True:
-        responce = input('Type s for Square or r for rectangle')
+        responce = input('Type s for Square or r for rectangle: ')
         if responce == 's' or 'S':
             square_prompt(canvas)
             break
@@ -114,4 +136,4 @@ if __name__ == '__main__':
             print('Please type correct responce!!')
             continue
     while True:
-        proceed_prompt()
+        proceed_prompt(canvas)
