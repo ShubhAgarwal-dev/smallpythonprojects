@@ -1,4 +1,6 @@
 from main import *
+from os import path as ospath
+import sys
 
 
 def canvas_prompt() -> Canvas:
@@ -9,7 +11,7 @@ def canvas_prompt() -> Canvas:
     height = int(input('Enter the canvas height(in px): '))
     color = color_prompt('canvas')
     image_path = input('What to name the image: ')
-    if image_path[-4:0] != '.png':
+    if ospath.splitext(image_path)[1] != '.png':
         image_path += '.png'
     canvas = Canvas(width, height, color, image_path)
     return canvas
@@ -101,18 +103,18 @@ def proceed_prompt(canvas: Canvas):
     '''
     print('What do you want to do further?')
     while True:
-        responce = input('Type s for Square, r for rectangle or q to quit: ')
-        if responce == 's' or 'S':
+        responce = input('Type s for square, r for rectangle or q to quit: ')
+        if responce == 's' or responce == 'S':
             square_prompt(canvas)
             break
-        elif responce == 'r' or 'R':
+        elif responce == 'r' or responce == 'R':
             rectangle_prompt(canvas)
             break
-        elif responce == 'q' or 'Q':
+        elif responce == 'q' or responce == 'Q':
             print('Are you sure')
             responce2 = input('Type q again to quit: ')
-            if responce2 == 'q' or 'Q':
-                exit()
+            if responce2 == 'q' or responce2 == 'Q':
+                sys.exit()
             else:
                 continue
         else:
@@ -125,11 +127,11 @@ if __name__ == '__main__':
     canvas.make()
     print('What would you like to draw on the canvas you made? ')
     while True:
-        responce = input('Type s for Square or r for rectangle: ')
-        if responce == 's' or 'S':
+        responce = input('Type s for square or r for rectangle: ')
+        if responce == 's' or responce == 'S':
             square_prompt(canvas)
             break
-        elif responce == 'r' or 'R':
+        elif responce == 'r' or responce == 'R':
             rectangle_prompt(canvas)
             break
         else:

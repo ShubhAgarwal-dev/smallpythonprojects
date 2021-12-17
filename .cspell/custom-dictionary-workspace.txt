@@ -13,6 +13,7 @@ meena
 Mohan
 MSMF
 OPENCV
+ospath
 penup
 pyright
 PYTHONPATH
