@@ -105,6 +105,8 @@
         "MediumSeaGreen",
         "Orange"
     ],
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": "active",
     "gitlens.views.stashes.files.layout": "tree",
     "python.testing.pytestEnabled": false,
     "python.testing.unittestEnabled": true,
