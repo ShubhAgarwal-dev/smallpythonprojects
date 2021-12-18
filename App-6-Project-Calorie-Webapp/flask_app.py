@@ -1,21 +1,29 @@
 from flask import Flask, render_template
 from flask.views import MethodView
+from flask import request
+
+from wtforms.fields.simple import StringField, SubmitField
 from wtforms import Form
+
 from pymodules.temperature import Temperature
 from pymodules.calorie import Calorie
-from wtforms.fields.simple import StringField, SubmitField
-from flask import request
 
 app = Flask(__name__)
 
 
 class HomePage(MethodView):
+    '''
+    Just a home page made for sake of it
+    '''
 
     def get(self):
         return (render_template('index.html'))
 
 
 class CalorieFormPage(MethodView):
+    '''
+    To calculate the calories
+    '''
 
     def get(self):
         calories_form = CalorieForm()
@@ -38,6 +46,9 @@ class CalorieFormPage(MethodView):
 
 
 class CalorieForm(Form):
+    '''
+    The form making class
+    '''
     weight = StringField('Weight(in Kg): ', default=70)
     height = StringField('Height(in cm): ', default=173)
     age = StringField('Age(in years): ', default=32)
