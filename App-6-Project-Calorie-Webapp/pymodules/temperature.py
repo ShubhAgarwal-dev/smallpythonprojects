@@ -22,9 +22,9 @@ class Temperature:
             'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
         'accept-language':
             'en-GB,en-US;q=0.9,en;q=0.8',
-    }  # Just so that website can beleave that request is from the web
+    }  # Just so that website can beleave that request is from the webbrowser
     base_url = 'https://www.timeanddate.com/weather'
-    yaml_file = 'temperature-yaml.yaml'
+    yaml_file = 'pymodules/temperature-yaml.yaml'
 
     def __init__(self, city: str, country: str) -> None:
         self._city = city.replace(' ', '-').lower()
@@ -41,7 +41,8 @@ class Temperature:
         '''
         Scrpes the data from the url of the url_builder
         '''
-        responce = requests.get(url=self.url_builder, headers=self.headers_text)
+        responce = requests.get(
+            url=self.url_builder(), headers=self.headers_text)
         text_responce = responce.text
         extractor = Extractor.from_yaml_file(self.yaml_file)
         raw_result = extractor.extract(text_responce)

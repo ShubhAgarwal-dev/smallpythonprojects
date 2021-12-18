@@ -3,6 +3,7 @@ apng
 asarray
 billform
 Calibri
+caloriesform
 dtype
 filesharer
 fpdf
