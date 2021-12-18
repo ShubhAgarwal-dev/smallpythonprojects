@@ -24,7 +24,7 @@ class Temperature:
             'en-GB,en-US;q=0.9,en;q=0.8',
     }  # Just so that website can beleave that request is from the web
     base_url = 'https://www.timeanddate.com/weather'
-    yaml_file = 'temperature.yaml'
+    yaml_file = 'temperature-yaml.yaml'
 
     def __init__(self, city: str, country: str) -> None:
         self._city = city.replace(' ', '-').lower()
@@ -37,7 +37,7 @@ class Temperature:
         url = f'{self.base_url}/{self._country}/{self._city}'
         return url
 
-    def get_temperature(self):
+    def _scraper(self):
         '''
         Scrpes the data from the url of the url_builder
         '''
@@ -51,7 +51,7 @@ class Temperature:
         '''
         Replace unnecessary content and returns the integer
         '''
-        scrapped_content = self.get_temperature()
+        scrapped_content = self._scraper()
         return int(scrapped_content['temp'].replace('°C', '').strip())
 
 

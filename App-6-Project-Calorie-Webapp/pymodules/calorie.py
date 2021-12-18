@@ -1,6 +1,6 @@
 # type: ignore
 # pyright: reportMissingModuleSource=false
-from temperature import Temperature
+from pymodules.temperature import Temperature
 
 
 class Calorie():

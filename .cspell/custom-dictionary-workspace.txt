@@ -1,4 +1,5 @@
 # Custom Dictionary Words
+apng
 asarray
 billform
 Calibri
@@ -7,6 +8,7 @@ filesharer
 fpdf
 ggame
 imagepath
+KHTML
 kivy
 LYRK
 meena
@@ -15,6 +17,7 @@ MSMF
 OPENCV
 ospath
 penup
+pymodules
 pyright
 PYTHONPATH
 Rahul
