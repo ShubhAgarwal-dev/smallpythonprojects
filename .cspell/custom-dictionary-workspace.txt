@@ -9,6 +9,7 @@ filesharer
 fpdf
 ggame
 imagepath
+iterrows
 KHTML
 kivy
 LYRK
@@ -21,6 +22,7 @@ penup
 pymodules
 pyright
 PYTHONPATH
+qintitle
 Rahul
 shivam
 Shyam
@@ -28,3 +30,4 @@ upto
 VIDEOIO
 werkzeug
 wtforms
+yagmail
