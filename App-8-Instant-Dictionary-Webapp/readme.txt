@@ -9,8 +9,7 @@ ERROR: Could not find a version that satisfies the requirement demjson>=2.2.4 \
 (from versions: 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 2.0, 2.0.1, 2.2, 2.2.1, 2.2.2, 2.2.3, 2.2.4)
 ERROR: No matching distribution found for demjson>=2.2.4
 
-it is due to above versions of python setuptools broke the support for 2to3.
-
+it is due to newer versions of python setuptools broke the support for 2to3.
 
 We in this app are going to use justpy framework because with it we can buiild our frontend with python too. We will not need to rely on
 Html ant all the other webdev stuff for some small projects.

@@ -2,6 +2,7 @@
 apng
 asarray
 billform
+buiild
 cachetools
 Calibri
 caloriesform
@@ -10,7 +11,9 @@ chardet
 cssselect
 cssutils
 dateutil
+demjson
 dtype
+errored
 filesharer
 fpdf
 ggame
@@ -18,6 +21,7 @@ idna
 imagepath
 iterrows
 jdcal
+justpy
 KHTML
 kivy
 lxml
@@ -38,11 +42,13 @@ PYTHONPATH
 pytz
 qintitle
 Rahul
+setuptools
 shivam
 Shyam
 upto
 urllib
 VIDEOIO
+webdev
 werkzeug
 wtforms
 xmlfile
