@@ -1,23 +1,32 @@
-import justpy as jp
-import definition
-import json
+from os import replace
+import flask
+from flask import render_template
+from flask import request, jsonify
 
-class Api:
-    """Handles requests at /api?w=word
-    """
-    @classmethod
-    def serve(cls, req):
-        wp = jp.WebPage()
-        word = req.query_params.get('w')
+from definition import Definition
 
-        defined = definition.Definition(word).get()
-
-        response = {
-            "word":word,
-            "definition":defined
-        }
-
-        wp.html = json.dumps(response)
-        return wp
+app = flask.Flask(__name__)
 
 
+@app.route('/', methods=['GET'])
+def home():
+    return 'go to /api/v1/meaning and provide word as param and the word you want to find meaning of as param'
+
+
+@app.route('/api/v1/meaning', methods=['GET'])
+# to handel request for /api/v1/meaning?word=
+def meaning_word():
+    # Checking if word is provided in the url
+    if 'word' in request.args:
+        word = str(request.args['word'])
+    else:
+        # It could have been a simple error message
+        #but I went with something unique
+        return render_template('404notfound.html')
+
+    responce = {'word': word, 'definition': Definition(word).get()}
+    return jsonify(responce)
+
+
+if __name__ == '__main__':
+    app.run()
