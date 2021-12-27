@@ -10,7 +10,9 @@ app = flask.Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def home():
-    return 'go to /api/v1/meaning and provide word as param and the word you want to find meaning of as param'
+    return_string = 'go to /api/v1/meaning and provide word as param'
+    + 'and the word you want to find meaning of as param'
+    return return_string
 
 
 @app.route('/api/v1/meaning', methods=['GET'])
