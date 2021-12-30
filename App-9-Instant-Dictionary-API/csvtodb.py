@@ -37,6 +37,22 @@ class DatabaseDevelopment():
         connection.close()
         return None
 
+    @staticmethod
+    def get_defination(database_path: str, word:str) -> list:
+        """
+        To get the definition of the word from dictionary database.
+        """
+        connection = sqlite3.connect(database_path)
+        cursor = connection.cursor()
+        cursor.execute("""
+            SELECT "meaning" FROM "Dictionary" WHERE "word" = ?
+            """, [word])
+        meaning_list = cursor.fetchall()
+        connection.close()
+        if meaning_list == []:
+            meaning_list = [('Word Not found in this database',)]
+        return meaning_list
+
 
 class CSVDataExtractor():
 
