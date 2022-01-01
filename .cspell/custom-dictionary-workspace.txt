@@ -53,6 +53,7 @@ cssselect
 cssutils
 Csvg
 dateutil
+defination
 Delorean
 demjson
 DOBRIS
