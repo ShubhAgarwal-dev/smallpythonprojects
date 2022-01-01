@@ -51,7 +51,12 @@ class DatabaseDevelopment():
         connection.close()
         if meaning_list == []:
             meaning_list = [('Word Not found in this database',)]
-        return meaning_list
+        def meaning_list_formatter(meaning_list: list):
+            formatted_meaning_list = []
+            for i, value in enumerate(meaning_list):
+                formatted_meaning_list.append(meaning_list[i][0])
+            return formatted_meaning_list
+        return meaning_list_formatter(meaning_list)
 
 
 class CSVDataExtractor():
