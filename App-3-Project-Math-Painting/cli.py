@@ -83,7 +83,7 @@ def rectangle_prompt(canvas: Canvas):
         else:
             break
 
-    height = abs(int(input('Width of rectangle is: ')))
+    height = abs(int(input('Height of rectangle is: ')))
     while True:
         if y_coordinate + height > canvas._height:
             print(
