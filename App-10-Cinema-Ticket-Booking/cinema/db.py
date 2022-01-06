@@ -1,5 +1,4 @@
 import sqlite3
-from typing import final
 
 
 class Banking():
@@ -79,3 +78,7 @@ class Banking():
         """)
         connection.commit()
         connection.close()
+
+
+class Cinema():
+    pass
