@@ -47,11 +47,10 @@ class Banking():
         connection.close()
         for i, value in enumerate(result):
             balance = result[i][0]
-        while True:
-            try:
-                return balance
-            except UnboundLocalError:
-                return "Check your card number and cvc anf try again."
+        try:
+            return float(balance)
+        except UnboundLocalError:
+            return "Check your card number and cvc anf try again."
 
     def deduct_amount(self, card_number: int, cvc: int, amount: float):
         initial_amount = self.read_balance(card_number, cvc)
@@ -137,6 +136,42 @@ class Cinema():
         connection.close()
         return None
 
+    def update_seat_taken(self, seat_id):
+        connection = sqlite3.connect(self._database_path)
+        connection.execute(
+            """
+            UPDATE "Seat" SET "tanken" = ? WHERE "seat_id" = ?
+        """, [int(True), seat_id])
+        connection.commit()
+        connection.close()
+        return None
 
-if __name__ == "__main__":
-    theare_seat_db = Cinema()
+    def update_seat_left(self, seat_id):
+        connection = sqlite3.connect(self._database_path)
+        connection.execute(
+            """
+            UPDATE "Seat" SET "tanken" = ? WHERE "seat_id" = ?
+        """, [int(False), seat_id])
+        connection.commit()
+        connection.close()
+        return None
+
+    def check_seat_status(self, seat_id):
+        connection = sqlite3.connect(self._database_path)
+        cursor = connection.cursor()
+        cursor.execute(
+            """
+            SELECT "taken" FROM "Seat" WHERE "seat_id" = ?
+        """, [seat_id])
+        result = cursor.fetchall()
+        return result[0][0]  # return 1 if full, 0 if vacant
+
+    def check_seat_price(self, seat_id):
+        connection = sqlite3.connect(self._database_path)
+        cursor = connection.cursor()
+        cursor.execute(
+            """
+            SELECT "price" FROM "Seat" WHERE "seat_id" = ?
+        """, [seat_id])
+        result = cursor.fetchall()
+        return float(result[0][0])
