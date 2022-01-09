@@ -59,6 +59,7 @@ def payment_prompt(seat_id):
                 bank.deduct_amount(card_number, cvc, price)
                 seat_database.update_seat_taken(seat_id)
                 print(f"{seat_id} has now been booked.")
+                break
 
 
 if __name__ == "__main__":
@@ -71,3 +72,5 @@ if __name__ == "__main__":
             continue
         else:
             payment_prompt(seat_id)
+            break
+    print("Thankyou for coming here for experience.")
